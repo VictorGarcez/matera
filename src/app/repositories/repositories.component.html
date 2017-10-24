@@ -1,0 +1,29 @@
+<section class="sec-repositories">
+  <article>
+    <div class="col-lg-12" *ngIf="(repos | json) != '[]'" >
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Link</th>
+            <th class="cursor" (click)="changeStarOrder()">Stars <span class="glyphicon glyphicon-arrow-down"></span></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of repos | orderBy: 'stargazers_count':starOrder">
+          <tr>
+            <td> <a class="cursor" href="./repo-details/{{ item.full_name }}">{{ item.name }}</a></td>
+            <td ><a class="cursor" href="{{ item.html_url }}"> {{item.html_url}}</a></td>
+            <td><span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{ item.stargazers_count }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="(repos | json) == '[]'" class="col-lg-12" >
+        <div class="alert alert-warning">
+            <strong>User not found!</strong>
+          </div>
+    </div>
+
+  </article>
+</section>

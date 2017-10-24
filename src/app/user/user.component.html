@@ -1,0 +1,57 @@
+<section class="sec-user">
+  <article>
+    <div class="col-lg-12 search-user-logo">
+      <h2>GITHUB - Search </h2>
+    </div>
+    <div class="col-lg-12 arrange">
+      <div class="input-group">
+        <input type="text" class="form-control" id="ipt_name" #iptname placeholder="Search...">
+        <span class="input-group-btn">
+            <button class="btn btn-primary" (click)="searchUser(iptname.value)" id="btn_buscar" type="button">Search</button>
+        </span>
+      </div>
+    </div>
+   
+
+    <div *ngIf="error == true" class="col-lg-12" >
+        <div class="alert alert-warning">
+            <strong>User not found!</strong>
+          </div>
+    </div>
+    <div *ngIf="(user.message | json) != 'Not Found' && (user | json) != '[]'" class="col-lg-12 panel-group">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+            User : {{ user.id }}
+        </div>
+        <div class="panel-body">
+          <div class="col-lg-12 arrange">
+              
+            <a href="/repos/{{user.login}}" class="btn btn-primary xs-12 pull-right">Repositories</a>
+          </div>
+          <div class="col-md-12 col-lg-2">
+            <img src="{{ user.avatar_url }}" class="img-responsive full-content">
+          </div>
+          <div class="col-md-12 col-lg-10">
+            <div class="panel panel-primary change-panel-name">
+              <div class="panel-body"><h2>{{user.name}}</h2>
+              </div>
+            </div>              
+            <div class="panel panel-default">
+                <div class="panel-body"><span>Followers:</span> {{ user.followers }}</div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body"><span>Following:</span> {{ user.following }}</div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body"> <span>Email:</span> {{ user.email }}</div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body"><span>Bio:</span> {{ user.bio }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </article>
+</section>

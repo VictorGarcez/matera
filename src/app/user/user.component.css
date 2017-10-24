@@ -1,0 +1,46 @@
+.search-user-logo{
+    background-image:url("../../assets/imgs/github-logo.png");
+    background-repeat: no-repeat;
+    background-size: 3%;
+    background-position: 4%;
+    margin:1% 0% 1% 0%;
+}
+
+.search-user-logo > h2 {
+    font-family: "book antiqua";
+    margin-left:7%;
+    height:50px;
+    line-height: 50px;
+}
+
+@media (max-width:768px){
+    .search-user-logo{
+        background-size: 5%;
+        margin:1% 0% 1% 0%;
+        background-position-x: 8%;
+    }
+    .search-user-logo > h2 {
+        margin-left:15%; 
+        font-size:14px;
+    }
+}
+@media (max-width:1024px){
+    .xs-12{
+        width:100%;
+    }
+}
+.arrange {
+    margin-bottom:15px;
+}
+.full-content{
+    width:100%;
+}
+.change-panel-name{
+    background-color:#337ab7;
+    color:#ffffff;
+}
+.panel-body > span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color:#337ab7;
+}
